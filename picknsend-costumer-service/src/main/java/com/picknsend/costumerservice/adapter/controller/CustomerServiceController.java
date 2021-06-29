@@ -1,6 +1,6 @@
-package com.picknsend.customerservice.adapter.controller;
+package com.picknsend.costumerservice.adapter.controller;
 
-import com.picknsend.customerservice.adapter.service.CustomerService;
+import com.picknsend.costumerservice.adapter.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author dhelarius 28/6/2021
+ * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
 @RestController
-public class CustomerController {
+public class CustomerServiceController {
 
     @Autowired
     CustomerService customerService;

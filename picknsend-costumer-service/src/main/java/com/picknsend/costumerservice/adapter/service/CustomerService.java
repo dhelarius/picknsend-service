@@ -1,4 +1,4 @@
-package com.picknsend.customerservice.adapter.service;
+package com.picknsend.costumerservice.adapter.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author dhelarius 28/6/2021
+ * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
 @Service
@@ -20,5 +20,4 @@ public class CustomerService {
     public List<Map<String, Object>> findAllCustomer() {
         return jdbcTemplate.queryForList("select * from cliente");
     }
-
 }
