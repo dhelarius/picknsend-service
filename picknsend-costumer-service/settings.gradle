@@ -1,0 +1,5 @@
+rootProject.name = 'picknsend-costumer-service'
+include 'domain'
+include 'usecase'
+include 'adapter'
+
