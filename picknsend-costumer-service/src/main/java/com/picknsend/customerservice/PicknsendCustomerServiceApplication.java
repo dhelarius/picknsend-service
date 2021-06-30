@@ -1,4 +1,4 @@
-package com.picknsend.costumerservice;
+package com.picknsend.customerservice;
 
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -13,10 +13,10 @@ import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.core.type.filter.TypeFilter;
 
 @SpringBootApplication
-public class PicknsendCostumerServiceApplication {
+public class PicknsendCustomerServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PicknsendCostumerServiceApplication.class, args);
+		SpringApplication.run(PicknsendCustomerServiceApplication.class, args);
 	}
 
 	@Bean
