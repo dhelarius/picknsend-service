@@ -15,7 +15,9 @@ dependencies {
     implementation(
             project(":usecase"),
             'org.springframework.boot:spring-boot-starter-web',
-            'org.springframework.boot:spring-boot-starter-data-jdbc'
+            'org.springframework.boot:spring-boot-starter-data-jpa',
+            'org.springframework.boot:spring-boot-starter-data-jdbc',
+            'org.modelmapper:modelmapper:2.3.2'
     )
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'

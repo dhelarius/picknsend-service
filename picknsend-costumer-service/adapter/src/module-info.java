@@ -5,4 +5,6 @@
      exports com.picknsend.customerservice.adapter;
 
      requires usecase;
+     requires org.springframework.boot;
+     requires org.modelmapper;
 }

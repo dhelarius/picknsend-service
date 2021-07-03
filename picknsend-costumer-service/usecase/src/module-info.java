@@ -5,4 +5,5 @@
      exports com.picknsend.customerservice.usecase;
 
      requires domain;
+     requires org.mockito;
 }
