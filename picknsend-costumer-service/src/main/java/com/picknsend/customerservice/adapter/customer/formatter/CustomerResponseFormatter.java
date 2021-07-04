@@ -16,8 +16,8 @@ import java.util.List;
 public class CustomerResponseFormatter implements CustomerPresenter {
     @Override
     public CustomerResponseModel prepareSuccessView(CustomerResponseModel response) {
-        LocalDateTime responseTime = LocalDateTime.parse(response.getCreationTime());
-        response.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));
+        /*LocalDateTime responseTime = LocalDateTime.parse(response.getCreationTime());
+        response.setCreationTime(responseTime.format(DateTimeFormatter.ofPattern("hh:mm:ss")));*/
         return response;
     }
 

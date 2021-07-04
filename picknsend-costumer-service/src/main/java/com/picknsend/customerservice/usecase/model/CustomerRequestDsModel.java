@@ -1,14 +1,17 @@
 package com.picknsend.customerservice.usecase.model;
 
+import java.time.LocalDateTime;
+
 /**
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
 
 /**
- * Objeto cliente de transferencia para respuesta.
+ * Objeto de transferencia para realizar solicitudes de presentación luego
+ * de procesar satisfactoriamente una solicitud.
  */
-public class CustomerResponseModel {
+public class CustomerRequestDsModel {
 
     private String npsv;
     private String name;
@@ -19,15 +22,10 @@ public class CustomerResponseModel {
     private String email;
     private String creationDate;
     private String status;
-    //private String creationTime;
+    private LocalDateTime creationTime;
 
     /**
-     * Crea un nuevo objeto cliente de respuesta.
-     */
-    public CustomerResponseModel() {}
-
-    /**
-     * Crea un nuevo objeto cliente de respuesta con sus datos asociados.
+     * Construye un modelo de solicitud satisfactoria.
      * @param npsv Identificador único del cliente
      * @param name Nombre del cliente.
      * @param lastName Apellido del cliente.
@@ -37,10 +35,11 @@ public class CustomerResponseModel {
      * @param email Email del cliente.
      * @param creationDate Fecha de creación de registro del cliente.
      * @param status Estado del cliente.
+     * @param creationTime Hora de creación de registro del cliente.
      */
-    public CustomerResponseModel(String npsv, String name, String lastName, String address,
-                                 String phone, String dni, String email, String creationDate,
-                                 String status/*, String creationTime*/) {
+    public CustomerRequestDsModel(String npsv, String name, String lastName, String address,
+                                  String phone, String dni, String email, String creationDate,
+                                  String status, LocalDateTime creationTime) {
         this.npsv = npsv;
         this.name = name;
         this.lastName = lastName;
@@ -50,7 +49,7 @@ public class CustomerResponseModel {
         this.email = email;
         this.creationDate = creationDate;
         this.status = status;
-        //this.creationTime = creationTime;
+        this.creationTime = creationTime;
     }
 
     /**
@@ -197,11 +196,19 @@ public class CustomerResponseModel {
         this.status = status;
     }
 
-    /*public String getCreationTime() {
+    /**
+     * Devuelve la hora de creación del cliente.
+     * @return LocalDateTime
+     */
+    public LocalDateTime getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(String creationTime) {
+    /**
+     * Recibe la hora de creación de registro del cliente.
+     * @param creationTime Hora de creación del cliente.
+     */
+    public void setCreationTime(LocalDateTime creationTime) {
         this.creationTime = creationTime;
-    }*/
+    }
 }

@@ -3,7 +3,7 @@ package com.picknsend.customerservice.usecase.interactor;
 import com.picknsend.customerservice.domain.entity.customer.Customer;
 import com.picknsend.customerservice.domain.entity.customer.CustomerFactory;
 import com.picknsend.customerservice.usecase.gateway.CustomerDsGateway;
-import com.picknsend.customerservice.usecase.gateway.CustomerInputBoundary;
+import com.picknsend.customerservice.usecase.gateway.CustomerUpdateBoundary;
 import com.picknsend.customerservice.usecase.model.CustomerRequestDsModel;
 import com.picknsend.customerservice.usecase.model.CustomerRequestModel;
 import com.picknsend.customerservice.usecase.model.CustomerResponseModel;
@@ -12,54 +12,56 @@ import com.picknsend.customerservice.usecase.presenter.CustomerPresenter;
 import java.time.LocalDateTime;
 
 /**
- * @author dhelarius 29/6/2021
+ * @author dhelarius 3/7/2021
  * picknsend-costumer-service
  */
 
 /**
- * Caso de uso para crear clientes
+ * Caso de uso para realizar actualizaciones de clientes.
  */
-public class CustomerRegisterInteractor extends CustomerInteractor implements CustomerInputBoundary {
+public class CustomerUpdaterInteractor extends CustomerInteractor implements CustomerUpdateBoundary {
 
     private final CustomerFactory customerFactory;
 
     /**
-     * Crea un nuevo caso de uso para registrar clientes.
-     * @param customerDsGateway Contiene el método de contrato para crear un nuevo cliente.
+     * Construye un caso de uso para actualizar un cliente basado en los datos contenidos
+     * en una solicitud.
+     *
+     * @param customerDsGateway Contiene los métodos de contrato para realizar operaciones
+     *                          sobre uno o varios clientes.
      * @param customerPresenter Presenta una respuesta luego de una solitud dada, si la respuesta
      *                          es satisfatoria devolverá con el método prepareSuccessView, de lo
-     *                          contrario lo harácon prepareFailView.
-     * @param customerFactory Fábrica para la creación de un objeto cliente.
+     *                          contrario lo hará con prepareFailView.
      */
-    public CustomerRegisterInteractor(CustomerDsGateway customerDsGateway,
-                                      CustomerPresenter customerPresenter,
-                                      CustomerFactory customerFactory) {
+    public CustomerUpdaterInteractor(CustomerDsGateway customerDsGateway,
+                                     CustomerPresenter customerPresenter,
+                                     CustomerFactory customerFactory) {
         super(customerDsGateway, customerPresenter);
         this.customerFactory = customerFactory;
     }
 
     /**
-     * Crea un cliente basado en los datos de la solicitud y devuelve una respuesta
-     * con los datos del nuevo cliente.
-     * @param request Solicitud que contiene los datos necesarios para crear un cliente.
+     * Actualiza un cliente existente y devuelve una respuesta con los datos actualizados.
+     *
+     * @param request Solicitud con los datos necesario para actualizar un cliente.
      * @return CustomerResponseModel
      */
     @Override
-    public CustomerResponseModel create(CustomerRequestModel request) {
+    public CustomerResponseModel update(CustomerRequestModel request) {
         var customerDsGateway = getCustomerDsGateway();
         var customerPresenter = getCustomerPresenter();
 
-        // Validar si el cliente existe
-        if(customerDsGateway.existByNpsv(request.getNpsv())) {
-            return customerPresenter.prepareFailView("El código npsv ya existe.");
+        // Validar la existencia de un cliente según su identificador
+        if(!customerDsGateway.existByNpsv(request.getNpsv())) {
+            return customerPresenter.prepareFailView("El cliente no pudo ser encontrado, el npsv no existe.");
         }
 
-        // Se crea el cliente en caso de que no exista
+        // En caso de existir crear un objeto cliente
         Customer customer = customerFactory.create(request.getNpsv(), request.getName(),
                 request.getLastName(), request.getAddress(), request.getPhone(), request.getDni(),
                 request.getEmail(), request.getCreationDate(), request.getStatus());
 
-        // Validar npsv
+        // validar npsv
         if(!customer.npsvIsValid()) {
             customerPresenter.prepareFailView("No se ha encontrado código npsv, favor ingresar uno.");
         }
@@ -80,10 +82,10 @@ public class CustomerRegisterInteractor extends CustomerInteractor implements Cu
                 customer.getAddress(), customer.getPhone(), customer.getDNI(),
                 customer.getEmail(), customer.getCreationDate(), customer.getStatus(), now);
 
-        // Crear el cliente
-        customerDsGateway.save(customerDsRequest);
+        // Actualizar cliente
+        customerDsGateway.update(customerDsRequest);
 
-        // Devolver el resultado con repuesta satisfactoria
+        // Devolver respuesta satisfactoria
         CustomerResponseModel response = new CustomerResponseModel(customerDsRequest.getNpsv(),
                 customerDsRequest.getName(), customerDsRequest.getLastName(), customerDsRequest.getAddress(),
                 customerDsRequest.getPhone(), customerDsRequest.getDni(), customerDsRequest.getEmail(),

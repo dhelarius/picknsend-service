@@ -2,12 +2,20 @@ package com.picknsend.customerservice.usecase.gateway;
 
 import com.picknsend.customerservice.usecase.model.CustomerResponseModel;
 
-import java.util.List;
-
 /**
- * @author dhelarius 29/6/2021
+ * @author dhelarius 3/7/2021
  * picknsend-costumer-service
  */
+
+/**
+ * Crea un limite de salida para la búsqueda de un cliente mediante su identificador
+ */
 public interface CustomerOutputBoundary {
-    List<CustomerResponseModel> read();
+
+    /**
+     * Contrato para la búsqueda de un cliente mediante su identificador.
+     * @param npsv Identica a un cliente en la base de datos.
+     * @return CustomerResponseModel
+     */
+    CustomerResponseModel findByNpsv(String npsv);
 }
