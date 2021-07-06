@@ -27,7 +27,7 @@ public interface CustomerPresenter {
      * Devuelve varios clientes con una respuesta satisfactoria.
      *
      * @param responses Respuesta que será devuelta luego de una solicitud.
-     * @return List<CustomerResponseModel>
+     * @return {@code List<CustomerResponseModel>}
      */
     List<CustomerResponseModel> prepareSuccessView(List<CustomerResponseModel> responses);
 

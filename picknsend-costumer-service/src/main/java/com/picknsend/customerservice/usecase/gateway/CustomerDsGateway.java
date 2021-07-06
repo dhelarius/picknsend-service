@@ -38,7 +38,7 @@ public interface CustomerDsGateway {
 
     /**
      * Método de contrato para la solicitud de una lista de clientes
-     * @return List<CustomerResponseModel>
+     * @return {@code List<CustomerResponseModel>}
      */
     List<CustomerResponseModel> findAll();
 

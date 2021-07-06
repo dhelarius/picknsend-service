@@ -9,10 +9,22 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author dhelarius 3/7/2021
  * picknsend-costumer-service
  */
+
+/**
+ * Objeto de acceso a datos de cliente.
+ */
 public class CustomerDao {
 
+    /**
+     * Crea un nuevo objeto de acceso a datos de cliente.
+     */
     public CustomerDao() {}
 
+    /**
+     * Crea un nuevo objeto de acceso a datos de cliente con su solicitud asociada.
+     * @param jdbcTemplate Plantilla para la ejecución de consulta en la base de datos.
+     * @param request Objeto de solicitud de proceso con datos de cliente.
+     */
     public void update(JdbcTemplate jdbcTemplate, CustomerRequestDsModel request) {
         var npsv = StringUtil.addQuotes(request.getNpsv());
         var name = StringUtil.addQuotes(request.getName());

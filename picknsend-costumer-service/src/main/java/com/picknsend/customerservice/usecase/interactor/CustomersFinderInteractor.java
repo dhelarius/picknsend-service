@@ -31,7 +31,7 @@ public class CustomersFinderInteractor extends CustomerInteractor implements Cus
 
     /**
      * Devuelve una lista de clientes
-     * @return List<CustomerResponseModel>
+     * @return {@code List<CustomerResponseModel>}
      */
     @Override
     public List<CustomerResponseModel> findAll() {

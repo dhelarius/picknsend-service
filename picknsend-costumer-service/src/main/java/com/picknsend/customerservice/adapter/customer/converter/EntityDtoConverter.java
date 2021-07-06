@@ -11,18 +11,36 @@ import java.util.stream.Collectors;
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
+
+/**
+ * Conversor para mapear objetos CustomerDataMapper en objetos de respuesta.
+ */
 public class EntityDtoConverter {
 
     private final ModelMapper modelMapper;
 
+    /**
+     * Crea un nuevo conversor.
+     */
     public EntityDtoConverter() {
         this.modelMapper = new ModelMapper();
     }
 
+    /**
+     * Devuelve un objeto CustomerReponseModel dado un objeto CustomerDataMapper
+     * @param customerDataMapper Mapeador jpa de datos de la tabla cliente.
+     * @return CustomerResponseMdel
+     */
     public CustomerResponseModel convertEntityToDto(CustomerDataMapper customerDataMapper) {
         return modelMapper.map(customerDataMapper, CustomerResponseModel.class);
     }
 
+    /**
+     * Devuelve una lista de objetos CustomerReponseModel dada una lista de objetos
+     * CustomerDataMapper
+     * @param customersDataMapper Lista de objetos CustomerDataMapper
+     * @return {@code List<CustomerResponseModel>}
+     */
     public List<CustomerResponseModel> convertEntityToDto(List<CustomerDataMapper> customersDataMapper) {
         return customersDataMapper.stream()
                 .map(customerDataMapper -> convertEntityToDto(customerDataMapper))

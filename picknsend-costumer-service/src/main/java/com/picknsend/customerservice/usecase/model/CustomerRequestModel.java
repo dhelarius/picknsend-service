@@ -1,24 +1,46 @@
 package com.picknsend.customerservice.usecase.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
 
+@ApiModel(description = "Clase que representa un cliente a procesar")
 /**
  * Objeto de transferencia para realizar solicitudes desde los puntos de
  * entrada del servicio.
  */
 public class CustomerRequestModel {
 
+    @NotNull
+    @NotBlank
+    @ApiModelProperty(notes = "Npsv de cliente", example = "4562", required = true)
     private String npsv;
+    @NotNull
+    @NotBlank
+    @ApiModelProperty(notes = "Nombre de cliente", example = "John", required = true)
     private String name;
+    @NotNull
+    @NotBlank
+    @ApiModelProperty(notes = "Apellido de cliente", example = "Doe", required = true)
     private String lastName;
+    @ApiModelProperty(notes = "Dirección del cliente", example = "La Vega")
     private String address;
+    @ApiModelProperty(notes = "Teléfono del cliente", example = "809-482-4694")
     private String phone;
+    @ApiModelProperty(notes = "Cédula del cliente", example = "047-1156115-1")
     private String dni;
+    @ApiModelProperty(notes = "Correo del cliente", example = "jdoe@gmail.com")
     private String email;
+    @ApiModelProperty(notes = "Fecha de creación del cliente", example = "05/07/2021")
     private String creationDate;
+    @ApiModelProperty(notes = "Estado del cliente", example = "A")
     private String status;
 
     /**

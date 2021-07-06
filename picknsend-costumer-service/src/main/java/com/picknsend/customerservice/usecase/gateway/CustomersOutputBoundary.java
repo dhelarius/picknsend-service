@@ -16,7 +16,7 @@ public interface CustomersOutputBoundary {
 
     /**
      * Contrato para devolver todos los clientes que están registrados.
-     * @return List<CustomerResponse>
+     * @return {@code List<CustomerResponse>}
      */
     List<CustomerResponseModel> findAll();
 }

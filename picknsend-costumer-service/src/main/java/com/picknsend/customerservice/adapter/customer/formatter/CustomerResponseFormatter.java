@@ -13,7 +13,17 @@ import java.util.List;
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
+
+/**
+ * Formatea la forma en como el servicio presenta la respuestas del servicio.
+ */
 public class CustomerResponseFormatter implements CustomerPresenter {
+
+    /**
+     * Formetea la devolución de una respuesta satisfactoria de un objeto cliente.
+     * @param response Respuesta que será devuelta luego de una solicitud.
+     * @return CustomerResponseModel
+     */
     @Override
     public CustomerResponseModel prepareSuccessView(CustomerResponseModel response) {
         /*LocalDateTime responseTime = LocalDateTime.parse(response.getCreationTime());
@@ -21,11 +31,21 @@ public class CustomerResponseFormatter implements CustomerPresenter {
         return response;
     }
 
+    /**
+     * Formetea la devolución de una respuesta satisfactoria de una lista de clientes.
+     * @param responses Respuesta que será devuelta luego de una solicitud.
+     * @return {@code List<CustomerResponseModel>}
+     */
     @Override
     public List<CustomerResponseModel> prepareSuccessView(List<CustomerResponseModel> responses) {
         return responses;
     }
 
+    /**
+     * Lanza una respuesta no satisfactoria con una descripción del error.
+     * @param error Descripción de la excepción a error.
+     * @return CustomerResponseModel
+     */
     @Override
     public CustomerResponseModel prepareFailView(String error) {
         throw new ResponseStatusException(HttpStatus.CONFLICT, error);
