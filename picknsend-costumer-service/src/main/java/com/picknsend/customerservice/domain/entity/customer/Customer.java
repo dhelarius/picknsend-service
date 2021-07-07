@@ -1,12 +1,10 @@
 package com.picknsend.customerservice.domain.entity.customer;
 
 /**
+ * Define los métodos de obtención de datos de un cliente.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Define los métodos de obtención de datos de un cliente.
  */
 public interface Customer {
 

@@ -1,12 +1,10 @@
 package com.picknsend.customerservice.domain.entity.customer;
 
 /**
+ * Clase de fábrica para crear un objeto tipo Customer.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Clase de fábrica para crear un objeto tipo Customer.
  */
 public class CommonCustomerFactory implements CustomerFactory{
 

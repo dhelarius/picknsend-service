@@ -8,12 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * Conversor para mapear objetos CustomerDataMapper en objetos de respuesta.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Conversor para mapear objetos CustomerDataMapper en objetos de respuesta.
  */
 public class EntityDtoConverter {
 

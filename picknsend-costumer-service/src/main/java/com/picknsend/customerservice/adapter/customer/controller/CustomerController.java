@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author dhelarius 29/6/2021
- * picknsend-costumer-service
- */
-
-/**
  * Controlador de springboot que implementa los endpoints de ejecución de solicitudes
  * web de la información de clientes.
+ *
+ * @author dhelarius 29/6/2021
+ * picknsend-costumer-service
  */
 @Api
 @RestController

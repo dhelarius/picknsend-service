@@ -32,6 +32,7 @@ public class CustomerUpdaterInteractor extends CustomerInteractor implements Cus
      * @param customerPresenter Presenta una respuesta luego de una solitud dada, si la respuesta
      *                          es satisfatoria devolverá con el método prepareSuccessView, de lo
      *                          contrario lo hará con prepareFailView.
+     * @param customerFactory Fábrica de objeto cliente.
      */
     public CustomerUpdaterInteractor(CustomerDsGateway customerDsGateway,
                                      CustomerPresenter customerPresenter,

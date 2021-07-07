@@ -7,15 +7,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Objeto de transferencia para realizar solicitudes desde los puntos de
+ * entrada del servicio.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
  */
-
 @ApiModel(description = "Clase que representa un cliente a procesar")
-/**
- * Objeto de transferencia para realizar solicitudes desde los puntos de
- * entrada del servicio.
- */
 public class CustomerRequestModel {
 
     @NotNull

@@ -1,5 +1,6 @@
 package com.picknsend.customerservice.usecase;
 
+import com.picknsend.customerservice.adapter.CustomerResponseFormatterUnitTest;
 import com.picknsend.customerservice.usecase.gateway.CustomerDsGateway;
 import com.picknsend.customerservice.usecase.interactor.CustomerRegisterInteractor;
 import com.picknsend.customerservice.usecase.model.CustomerRequestDsModel;
@@ -19,9 +20,17 @@ import static org.mockito.BDDMockito.then;
  */
 public class CustomerRegisterInteractorUnitTest {
 
-    private CustomerDsGateway customerDsGateway;
-    private CustomerRegisterInteractor customerRegisterInteractor;
-    private CustomerPresenter customerPresenter;
+    private final CustomerDsGateway customerDsGateway;
+    private final CustomerRegisterInteractor customerRegisterInteractor;
+    private final CustomerPresenter customerPresenter;
+
+    public CustomerRegisterInteractorUnitTest(CustomerDsGateway customerDsGateway,
+                                             CustomerRegisterInteractor customerRegisterInteractor,
+                                             CustomerPresenter customerPresenter) {
+        this.customerDsGateway = customerDsGateway;
+        this.customerRegisterInteractor = customerRegisterInteractor;
+        this.customerPresenter = customerPresenter;
+    }
 
     @Test
     void givenCustomerDate_whenCreate_thenSaveSuccessView() {
@@ -38,8 +47,7 @@ public class CustomerRegisterInteractorUnitTest {
                         "27/06/2021", "A", now()));
         then(customerPresenter).should()
                 .prepareSuccessView(new CustomerResponseModel("11097", "John", "Doe", "La Vega",
-                        "809-486-4815", "047-1516518-1", "jdoe@gmail.com", "27/06/2021", "A",
-                        "27/06/2021"));
+                        "809-486-4815", "047-1516518-1", "jdoe@gmail.com", "27/06/2021", "A"));
     }
 
     private LocalDateTime now() {

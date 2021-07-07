@@ -10,13 +10,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 /**
- * @author dhelarius 29/6/2021
- * picknsend-costumer-service
- */
-
-/**
  * Clase adaptador jpa que implementa los procesos definidos por
  * los casos de uso para realizar solicitudes en la base de datos.
+ *
+ * @author dhelarius 29/6/2021
+ * picknsend-costumer-service
  */
 public class JpaCustomer implements CustomerDsGateway {
 

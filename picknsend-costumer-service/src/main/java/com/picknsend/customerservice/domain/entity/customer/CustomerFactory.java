@@ -1,12 +1,10 @@
 package com.picknsend.customerservice.domain.entity.customer;
 
 /**
+ * Define el método para la creación de un objeto cliente.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Define el método para la creación de un obeto cliente.
  */
 public interface CustomerFactory {
 

@@ -3,13 +3,11 @@ package com.picknsend.customerservice.usecase.model;
 import java.time.LocalDateTime;
 
 /**
- * @author dhelarius 29/6/2021
- * picknsend-costumer-service
- */
-
-/**
  * Objeto de transferencia para realizar solicitudes de presentación luego
  * de procesar satisfactoriamente una solicitud.
+ *
+ * @author dhelarius 29/6/2021
+ * picknsend-costumer-service
  */
 public class CustomerRequestDsModel {
 

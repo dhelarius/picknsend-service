@@ -10,12 +10,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
+ * Formatea la forma en como el servicio presenta la respuestas del servicio.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Formatea la forma en como el servicio presenta la respuestas del servicio.
  */
 public class CustomerResponseFormatter implements CustomerPresenter {
 

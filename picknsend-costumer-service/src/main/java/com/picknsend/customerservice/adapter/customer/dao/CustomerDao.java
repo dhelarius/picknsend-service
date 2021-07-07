@@ -6,12 +6,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
+ * Objeto de acceso a datos de cliente.
+ *
  * @author dhelarius 3/7/2021
  * picknsend-costumer-service
- */
-
-/**
- * Objeto de acceso a datos de cliente.
  */
 public class CustomerDao {
 

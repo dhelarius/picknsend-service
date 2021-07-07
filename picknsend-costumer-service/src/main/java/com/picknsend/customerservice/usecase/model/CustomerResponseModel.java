@@ -1,12 +1,10 @@
 package com.picknsend.customerservice.usecase.model;
 
 /**
+ * Objeto cliente de transferencia para respuesta.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Objeto cliente de transferencia para respuesta.
  */
 public class CustomerResponseModel {
 

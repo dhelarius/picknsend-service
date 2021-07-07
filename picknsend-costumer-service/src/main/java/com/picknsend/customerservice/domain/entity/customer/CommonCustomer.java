@@ -1,12 +1,10 @@
 package com.picknsend.customerservice.domain.entity.customer;
 
 /**
+ * Clase para el procesamiento de datos de un cliente.
+ *
  * @author dhelarius 29/6/2021
  * picknsend-costumer-service
- */
-
-/**
- * Clase para el procesamiento de datos de un cliente.
  */
 public class CommonCustomer implements Customer{
 

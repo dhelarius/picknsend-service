@@ -3,13 +3,11 @@ package com.picknsend.customerservice.adapter.customer.persistence;
 import javax.persistence.*;
 
 /**
- * @author dhelarius 29/6/2021
- * picknsend-costumer-service
- */
-
-/**
  * Objeto utilizado para mapear los datos manejados en los registros de
  * la tabla cliente.
+ *
+ * @author dhelarius 29/6/2021
+ * picknsend-costumer-service
  */
 @Entity
 @Table(name = "cliente")
@@ -42,6 +40,15 @@ public class CustomerDataMapper {
 
     /**
      * Construye un nuevo objeto de mapeo para la tabla cliente con sus datos asociados.
+     * @param npsv Npsv del cliente.
+     * @param name Nombre del cliente.
+     * @param lastName Apellido del cliente.
+     * @param address Dirección del cliente.
+     * @param phone Teléfono del cliente.
+     * @param dni Cédula del cliente.
+     * @param email Email del cliente.
+     * @param creationDate Fecha de creación del cliente.
+     * @param status Estado del cliente.
      */
     public CustomerDataMapper(String npsv, String name, String lastName,
                               String address, String phone, String dni, String email,
