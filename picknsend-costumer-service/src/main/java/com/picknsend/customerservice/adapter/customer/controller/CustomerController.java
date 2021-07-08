@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Api
 @RestController
+@RequestMapping(value = CustomerControllerPaths.BASE_PATH)
 public class CustomerController {
 
     private final CustomerInputBoundary customerInputBoundary;
@@ -48,65 +49,65 @@ public class CustomerController {
         this.customerDeleteBoundary = customerDeleteBoundary;
     }
 
-    @ApiOperation(value = "Crea un nuevo cliente",
-            notes = "Esta operacion crea un nuevo cliente a partir de un objeto de solicitud")
     /**
      * Devuelve un objeto Json con los datos del cliente creado.
      * @param request Solicitud definida en un objeto Json.
      * @return {@code ResponseEntity<CustomerResponseModel> }
      */
-    @PostMapping(value = "/customer/create")
+    @ApiOperation(value = "Crea un nuevo cliente",
+            notes = "Esta operacion crea un nuevo cliente a partir de un objeto de solicitud")
+    @PostMapping(value = CustomerControllerPaths.CREATE)
     public ResponseEntity<CustomerResponseModel> create(@RequestBody CustomerRequestModel request) {
         var response = customerInputBoundary.create(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @ApiOperation(value = "Devuelve un cliente basado en su npsv",
-            notes = "Esta operacion devuelve un cliente basado en su npsv")
     /**
      * Devuelve un objeto Json con los datos de un cliente basado en su npsv asociado.
      * @param npsv Identificador único del cliente.
      * @return {@code ResponseEntity<CustomerResponseModel> }
      */
-    @GetMapping(value = "/customer/{npsv}")
+    @ApiOperation(value = "Devuelve un cliente basado en su npsv",
+            notes = "Esta operacion devuelve un cliente basado en su npsv")
+    @GetMapping(value = CustomerControllerPaths.FIND_CUSTOMER)
     public ResponseEntity<CustomerResponseModel> findByNpsv(@PathVariable String npsv) {
         var response = customerOutputBoundary.findByNpsv(npsv);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Devuelve una lista de clientes",
-            notes = "Esta operacion devuelve una lista de clientes")
     /**
      * Devuelve un objeto Json con la lista de todos los clientes existentes.
      * @return {@code ResponseEntity<List<CustomerResponseModel>> }
      */
-    @GetMapping(value = "/customer")
+    @ApiOperation(value = "Devuelve una lista de clientes",
+            notes = "Esta operacion devuelve una lista de clientes")
+    @GetMapping(value = CustomerControllerPaths.FIND_CUSTOMERS)
     public ResponseEntity<List<CustomerResponseModel>> findAll() {
         var response = customersOutputBoundary.findAll();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Actualiza un cliente",
-            notes = "Esta operacion actualiza un cliente existente")
     /**
      * Devuelve un objeto Json con los datos actualizados de un cliente basado en su npsv.
      * @param request Solicitud definida en un objeto Json.
      * @return {@code ResponseEntity<CustomerResponseModel> }
      */
-    @PutMapping(value = "/customer")
+    @ApiOperation(value = "Actualiza un cliente",
+            notes = "Esta operacion actualiza un cliente existente")
+    @PutMapping(value = CustomerControllerPaths.UPDATE)
     public ResponseEntity<CustomerResponseModel> update(@RequestBody CustomerRequestModel request) {
         var response = customerUpdateBoundary.update(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Elimina un cliente",
-            notes = "Esta operacion elimina un cliente basado en su npsv")
     /**
      * Elimina un cliente basado en su npsv asociado.
      * @param npsv Identificador único de cliente.
      * @return {@code ResponseEntity<CustomerResponseModel> }
      */
-    @DeleteMapping(value = "/customer/{npsv}")
+    @ApiOperation(value = "Elimina un cliente",
+            notes = "Esta operacion elimina un cliente basado en su npsv")
+    @DeleteMapping(value = CustomerControllerPaths.DELETE)
     public ResponseEntity<CustomerResponseModel> delete(@PathVariable String npsv) {
         var response = customerDeleteBoundary.delete(npsv);
         return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
