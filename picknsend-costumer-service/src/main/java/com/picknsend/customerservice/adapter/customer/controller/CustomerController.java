@@ -28,6 +28,7 @@ public class CustomerController {
     private final CustomersOutputBoundary customersOutputBoundary;
     private final CustomerUpdateBoundary customerUpdateBoundary;
     private final CustomerDeleteBoundary customerDeleteBoundary;
+    private final CustomerInactivateBoundary customerInactivateBoundary;
 
     /**
      * Crea un nuevo controlador de cliente con sus limites de entrada y salida asociados.
@@ -35,18 +36,21 @@ public class CustomerController {
      * @param customerOutputBoundary Define la obtención de datos de un cliente.
      * @param customersOutputBoundary Define la obtención de datos de una lista de clientes.
      * @param customerUpdateBoundary Define la actualización de datos de un cliente.
-     * @param customerDeleteBoundary Defina la eliminación de un cliente.
+     * @param customerDeleteBoundary Define la eliminación de un cliente.
+     * @param customerInactivateBoundary Define la iinativación de un cliente.
      */
     public CustomerController(CustomerInputBoundary customerInputBoundary,
                               CustomerOutputBoundary customerOutputBoundary,
                               CustomersOutputBoundary customersOutputBoundary,
                               CustomerUpdateBoundary customerUpdateBoundary,
-                              CustomerDeleteBoundary customerDeleteBoundary) {
+                              CustomerDeleteBoundary customerDeleteBoundary,
+                              CustomerInactivateBoundary customerInactivateBoundary) {
         this.customerInputBoundary = customerInputBoundary;
         this.customerOutputBoundary = customerOutputBoundary;
         this.customerUpdateBoundary = customerUpdateBoundary;
         this.customersOutputBoundary = customersOutputBoundary;
         this.customerDeleteBoundary = customerDeleteBoundary;
+        this.customerInactivateBoundary = customerInactivateBoundary;
     }
 
     /**
@@ -108,8 +112,21 @@ public class CustomerController {
     @ApiOperation(value = "Elimina un cliente",
             notes = "Esta operacion elimina un cliente basado en su npsv")
     @DeleteMapping(value = CustomerControllerPaths.DELETE)
-    public ResponseEntity<CustomerResponseModel> delete(@PathVariable String npsv) {
+    public ResponseEntity<Boolean> delete(@PathVariable String npsv) {
         var response = customerDeleteBoundary.delete(npsv);
-        return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    /**
+     * Inactiva un cliente basado en su npsv asociado.
+     * @param npsv Identificador único de cliente.
+     * @return {@code ResponseEntity<CustomerResponseModel> }
+     */
+    @ApiOperation(value = "Inactiva un cliente",
+            notes = "Esta operacion inactiva un cliente basado en su npsv")
+    @PutMapping(value = CustomerControllerPaths.INACTIVATE)
+    public ResponseEntity<CustomerResponseModel> inactivate(@PathVariable String npsv) {
+        var response = customerInactivateBoundary.inactivate(npsv);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

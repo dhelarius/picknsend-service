@@ -14,9 +14,6 @@ import java.time.LocalDateTime;
 /**
  * @author dhelarius 3/7/2021
  * picknsend-costumer-service
- */
-
-/**
  * Caso de uso para realizar actualizaciones de clientes.
  */
 public class CustomerUpdaterInteractor extends CustomerInteractor implements CustomerUpdateBoundary {

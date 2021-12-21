@@ -15,4 +15,5 @@ public class CustomerControllerPaths {
     public static final String FIND_CUSTOMERS = "/customer";
     public static final String UPDATE = "/customer";
     public static final String DELETE = "/customer/{npsv}";
+    public static final String INACTIVATE = "/customer/inactivate/{npsv}";
 }

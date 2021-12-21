@@ -109,4 +109,11 @@ public class JpaCustomer implements CustomerDsGateway {
         repository.deleteById(npsv);
         return null;
     }
+
+    @Override
+    public CustomerResponseModel inactivate(String npsv) {
+        repository.inactivate(npsv);
+        var customerDataMapper = repository.getById(npsv);
+        return converter.convertEntityToDto(customerDataMapper);
+    }
 }

@@ -51,7 +51,8 @@ public class CustomerRegisterInteractor extends CustomerInteractor implements Cu
 
         // Validar si el cliente existe
         if(customerDsGateway.existByNpsv(request.getNpsv())) {
-            return customerPresenter.prepareFailView("El código npsv ya existe.");
+            return customerPresenter.prepareFailView("El código npsv ya existe: No se ha podido " +
+                                                        "crear el nuevo cliente.");
         }
 
         // Se crea el cliente en caso de que no exista

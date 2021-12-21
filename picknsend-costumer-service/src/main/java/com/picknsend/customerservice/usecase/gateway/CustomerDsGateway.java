@@ -56,4 +56,11 @@ public interface CustomerDsGateway {
      * @return CustomerResponseModel
      */
     CustomerResponseModel delete(String npsv);
+
+    /**
+     * Método de contrato para inactivar un cliente dado su identificador
+     * @param npsv Identificador único del cliente.
+     * @return El cliente con su estado inactivo
+     */
+    CustomerResponseModel inactivate(String npsv);
 }

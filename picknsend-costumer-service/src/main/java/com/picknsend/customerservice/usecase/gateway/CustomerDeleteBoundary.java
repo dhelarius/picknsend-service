@@ -5,9 +5,6 @@ import com.picknsend.customerservice.usecase.model.CustomerResponseModel;
 /**
  * @author dhelarius 2/7/2021
  * picknsend-costumer-service
- */
-
-/**
  * Crea un limite de entrada para la eliminación de clientes
  */
 public interface CustomerDeleteBoundary {
